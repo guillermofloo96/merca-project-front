@@ -4,18 +4,20 @@ import { CommonModule } from '@angular/common';
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './pages/login/login.component';
 import { ProductoComponent } from './pages/producto/producto/producto.component';
-import { LoginformComponent } from './pages/loginForm/loginform/loginform.component';
+
+import {ReactiveFormsModule} from "@angular/forms";
+import { RegistreFormComponent } from '../home/pages/loginForm/registre-form.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    ProductoComponent,
-    LoginformComponent
+    ProductoComponent
   ],
-  imports: [
-    CommonModule,
-    AuthRoutingModule
-  ]
+    imports: [
+        CommonModule,
+        AuthRoutingModule,
+        ReactiveFormsModule
+    ]
 })
-export class AuthModule { } 
+export class AuthModule { }

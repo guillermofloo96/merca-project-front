@@ -45,14 +45,7 @@
   <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
     <div class="row gx-lg-5 align-items-center mb-5">
       <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
-        <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
-          Aqui puedes <br />
-          <span style="color: hsl(218, 81%, 75%)">Buscar tu mejor oferta</span>
-        </h1>
-        <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
-            Mi Mercadito, xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-        </p>
+
       </div>
 
       <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
@@ -61,29 +54,35 @@
 
         <div class="card bg-glass">
           <div class="card-body px-4 py-5 px-md-5">
-            <form >
+            <form role="form" [formGroup]="loginForm"  >
               <!-- 2 column grid layout with text inputs for the first and last names -->
               <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 75%)"> Inicio de sesion <br />
-                
+
               </h1>
 
               <!-- Email input -->
               <div class="form-outline mb-4">
-                <input type="email" placeholder="Escribe aqui tu direccion de correo" id="form3Example3" class="form-control" />
                 <label class="form-label"  for="form3Example3">Correo</label>
+                <input type="email" formControlName="email" placeholder="Escribe aqui tu direccion de correo" id="form3Example3" class="form-control"
+                [ngClass]="{'error':isTouchedField(loginForm, 'email')}" />
+
+
+                <span class="text-danger">{{getErrorForm('email')}}</span>
               </div>
 
               <!-- Password input -->
               <div class="form-outline mb-4">
-                <input type="password" placeholder="Escribe aqui tu contraseña master" id="form3Example4" class="form-control" />
                 <label class="form-label" for="form3Example4">Contraseña</label>
+                <input type="password" formControlName="password" placeholder="Escribe aqui tu contraseña master" id="form3Example4" class="form-control" />
+
+                <span class="text-danger">{{getErrorForm('password')}}</span>
               </div>
 
               <!-- Checkbox -->
-              
+
 
               <!-- Submit button -->
-              <button (click)="singIn()" class="btn btn-primary btn-block mb-4">
+              <button (click)="singIn()"  class="btn btn-primary btn-block mb-4">
                 Iniciar sesion.
               </button>
 
